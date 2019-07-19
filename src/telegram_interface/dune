@@ -1,0 +1,5 @@
+(executable
+ (name telegram_interface)
+ (modules telegram_interface)
+ (libraries async async_unix cohttp cohttp-async yojson http telegram aws)
+ (preprocess (pps ppx_deriving.make ppx_deriving_yojson)))

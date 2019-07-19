@@ -1,0 +1,6 @@
+*.so
+.merlin
+env.sh
+src/lib
+src/assets
+src/_build
