@@ -88,7 +88,7 @@ let request_of_update update =
   let key_conditions =
     match time_range with
     | Days _ -> "event_key BETWEEN :start_date AND :end_date"
-    | Day _ | Hours _ -> "event_key BEGINS_WITH :date"
+    | Day _ | Hours _ -> "begins_with(event_key, :date)"
   in
   let key_condition_expression =
     [ "entity_type = :entity_type"; key_conditions ] |> String.concat ~sep:" AND "
