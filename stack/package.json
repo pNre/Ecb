@@ -10,21 +10,21 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@types/node": "12.6.2",
-    "aws-cdk": "^1.0.0",
+    "@types/node": "12.6.8",
+    "aws-cdk": "^1.1.0",
     "ts-node": "^8.1.0",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigateway": "^1.0.0",
-    "@aws-cdk/aws-dynamodb": "^1.0.0",
-    "@aws-cdk/aws-events": "^1.0.0",
-    "@aws-cdk/aws-events-targets": "^1.0.0",
-    "@aws-cdk/aws-lambda": "^1.0.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.0.0",
-    "@aws-cdk/aws-sam": "^1.0.0",
-    "@aws-cdk/aws-sqs": "^1.0.0",
-    "@aws-cdk/core": "^1.0.0",
+    "@aws-cdk/aws-apigateway": "^1.1.0",
+    "@aws-cdk/aws-dynamodb": "^1.1.0",
+    "@aws-cdk/aws-events": "^1.1.0",
+    "@aws-cdk/aws-events-targets": "^1.1.0",
+    "@aws-cdk/aws-lambda": "^1.1.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.1.0",
+    "@aws-cdk/aws-sam": "^1.1.0",
+    "@aws-cdk/aws-sqs": "^1.1.0",
+    "@aws-cdk/core": "^1.1.0",
     "source-map-support": "^0.5.9"
   }
 }
