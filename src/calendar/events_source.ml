@@ -31,6 +31,7 @@ let events () =
   let params =
     [ "country[]", [ "10" ]
     ; "country[]", [ "5" ]
+    ; "country[]", [ "72" ]
     ; "importance[]", [ "3" ]
     ; "timeZone", [ "55" ]
     ; "timeFilter", [ "timeRemain" ]
