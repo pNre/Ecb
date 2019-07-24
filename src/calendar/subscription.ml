@@ -3,7 +3,7 @@ open Async
 open Dynamodb
 open Core
 
-let subscribers_table_name = Sys.getenv_exn "SUBSCRIBERS_TABLE"
+let table_name = Sys.getenv_exn "SUBSCRIBERS_TABLE"
 
 type subscription =
   { subscription : Attribute_value.S.t [@main]
@@ -23,7 +23,7 @@ let subscribers_request ?(subscription = "ALL") () =
   let key_condition_expression = Some "subscription = :subscription" in
   let expression_attribute_values = Some subscription in
   make_query_request
-    ~table_name:subscribers_table_name
+    ~table_name
     ~key_condition_expression
     ~expression_attribute_values
     ()
@@ -49,6 +49,6 @@ let add ~chat_id =
   let subscription = "ALL" |> S.of_string in
   let subscriber = chat_id |> Int64.to_string |> S.of_string |> Option.return in
   let key = make_subscription ~subscriber subscription |> subscription_to_yojson in
-  let request = make_update_item_request ~key ~table_name:subscribers_table_name () in
+  let request = make_update_item_request ~key ~table_name () in
   update_item request
 ;;

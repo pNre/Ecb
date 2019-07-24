@@ -132,6 +132,14 @@ let request_of_update update =
   key_condition_expression, filter_expression, expression_attribute_values
 ;;
 
+let flag_of_country country =
+  match String.strip country with
+  | "Euro Zone" -> "🇪🇺"
+  | "United States" -> "🇺🇸"
+  | "Italy" -> "🇮🇹"
+  | _ -> ""
+;;
+
 let description_of_event
     { event_name; event_sentiment; event_country; event_day; event_time; _ }
   =
@@ -142,6 +150,7 @@ let description_of_event
   in
   let name = event_name.value in
   let country = event_country.value in
+  let flag = flag_of_country country in
   let day = event_day.value in
   let time = event_time.value in
   let zone = Time.Zone.utc in
@@ -150,10 +159,11 @@ let description_of_event
   let day = Time.format time "%Y/%m/%d" ~zone in
   let time = Time.format time "%T" ~zone in
   sprintf
-    "Event: *%s*\nBulliness: %s\nCountry: %s\nDay: %s\nTime: %s"
+    "Event: *%s*\nBulliness: %s\nCountry: %s%s\nDay: %s\nTime: %s"
     name
     sentiment
     country
+    flag
     day
     time
 ;;
