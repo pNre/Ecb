@@ -134,9 +134,9 @@ let request_of_update update =
 
 let flag_of_country country =
   match String.strip country with
-  | "Euro Zone" -> "🇪🇺"
-  | "United States" -> "🇺🇸"
-  | "Italy" -> "🇮🇹"
+  | "Euro Zone" -> " 🇪🇺"
+  | "United States" -> " 🇺🇸"
+  | "Italy" -> " 🇮🇹"
   | _ -> ""
 ;;
 
@@ -159,7 +159,7 @@ let description_of_event
   let day = Time.format time "%Y/%m/%d" ~zone in
   let time = Time.format time "%T" ~zone in
   sprintf
-    "Event: *%s*\nBulliness: %s\nCountry: %s%s\nDay: %s\nTime: %s"
+    "*%s*\nBulliness: %s\nCountry: %s%s\nDay: %s\nTime: %s"
     name
     sentiment
     country
