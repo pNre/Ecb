@@ -156,7 +156,7 @@ let description_of_event
   let zone = Time.Zone.utc in
   let time = Time.parse (day ^ " " ^ time) ~fmt:"%Y/%m/%d %T" ~zone in
   let zone = Time.Zone.find_exn "Europe/Rome" in
-  let day = Time.format time "%Y/%m/%d" ~zone in
+  let day = Time.format time "%d/%m/%Y" ~zone in
   let time = Time.format time "%T" ~zone in
   sprintf
     "*%s*\nBulliness: %s\nCountry: %s%s\nDay: %s\nTime: %s"
