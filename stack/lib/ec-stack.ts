@@ -55,7 +55,7 @@ export class ECStack extends cdk.Stack {
       runtime: lambda.Runtime.PROVIDED,
       layers: [libsslLayer],
       environment: {
-        TELEGRAM_BOT_TOKEN,
+        TELEGRAM_BOT_TOKEN: TELEGRAM_BOT_TOKEN!,
         COMMANDS_QUEUE_URL: commandsQueue.queueUrl
       }
     });
@@ -68,7 +68,7 @@ export class ECStack extends cdk.Stack {
       runtime: lambda.Runtime.PROVIDED,
       layers: [libsslLayer],
       environment: {
-        TELEGRAM_BOT_TOKEN,
+        TELEGRAM_BOT_TOKEN: TELEGRAM_BOT_TOKEN!,
         SUBSCRIBERS_TABLE: subscribersTable.tableName,
         EVENTS_TABLE: eventsTable.tableName,
       },
@@ -82,7 +82,7 @@ export class ECStack extends cdk.Stack {
 
     new events.Rule(this, 'UpdateEvents', {
       ruleName: "update-events",
-      schedule: events.Schedule.rate(cdk.Duration.minutes(30)),
+      schedule: events.Schedule.rate(cdk.Duration.minutes(60)),
       targets: [
         new targets.LambdaFunction(calendar, {
           event: events.RuleTargetInput.fromObject({event: 'update-events'})
@@ -92,7 +92,7 @@ export class ECStack extends cdk.Stack {
   
     new events.Rule(this, 'PushUpdates', {
       ruleName: "push-updates",
-      schedule: events.Schedule.rate(cdk.Duration.minutes(1)),
+      schedule: events.Schedule.rate(cdk.Duration.minutes(2)),
       targets: [
         new targets.LambdaFunction(calendar, {
           event: events.RuleTargetInput.fromObject({event: 'push-updates'})

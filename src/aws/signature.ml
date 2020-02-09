@@ -31,7 +31,7 @@ let encode_query ps =
            | _ -> failwith "AWS query cannot have multiple values for same key"
          in
          key, value)
-  |> List.sort ~compare:(fun a b -> compare (fst a) (fst b))
+  |> List.sort ~compare:(fun a b -> String.compare (fst a) (fst b))
   |> List.map ~f:(fun (k, v) -> k ^ "=" ^ v)
   |> String.concat ~sep:"&"
 ;;

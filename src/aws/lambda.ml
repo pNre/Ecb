@@ -1,5 +1,6 @@
 open Async
 open Core
+open Core.Poly
 open Cohttp
 
 type error =

@@ -4,3 +4,4 @@ env.sh
 src/lib
 src/assets
 src/_build
+.DS_Store

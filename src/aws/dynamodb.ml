@@ -1,5 +1,6 @@
 open Async
 open Core
+open Core.Poly
 
 module Attribute_value = struct
   module S = struct

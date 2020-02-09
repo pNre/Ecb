@@ -1,5 +1,6 @@
 open Async
 open Core
+open Core.Poly
 
 type user =
   { id : int64

@@ -1,4 +1,5 @@
 open Core
+open Core.Poly
 open Aws.Dynamodb
 open Async
 open Async_unix

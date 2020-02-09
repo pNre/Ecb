@@ -2,6 +2,7 @@ open Aws
 open Async
 open Dynamodb
 open Core
+open Core.Poly
 
 let table_name = Sys.getenv_exn "SUBSCRIBERS_TABLE"
 
